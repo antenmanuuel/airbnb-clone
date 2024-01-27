@@ -1,16 +1,17 @@
 "use client";
 
-import useRentModal from "app/hooks/useRentModal";
 import Modal from "./Modal";
 import { useMemo, useState } from "react";
 import Heading from "../Heading";
-import { categories } from "app/constants/categories";
 import CategoryInput from "../inputs/CategoryInput";
 import { FieldValues, useForm } from "react-hook-form";
 import CountrySelect from "../inputs/CountrySelect";
 import Map from "../Map";
 import Counter from "../inputs/Counter";
-import { STEPS } from "app/constants/steps";
+import { categories } from "@/app/constants/categories";
+import { STEPS } from "@/app/constants/steps";
+import useRentModal from "@/app/hooks/useRentModal";
+import ImageUpload from "../inputs/ImageUpload";
 
 const RentModal = () => {
   const rentModal = useRentModal();
@@ -146,6 +147,21 @@ const RentModal = () => {
           value={bathroomCount}
           title="Bathrooms"
           subtitle="How many bathrooms do you have?"
+        />
+      </div>
+    );
+  }
+
+  if (step === STEPS.IMAGES) {
+    bodyContent = (
+      <div className="flex flex-col gap-8">
+        <Heading
+          title="Add a photo of your place"
+          subtitle="Show guests what your place looks like!"
+        />
+        <ImageUpload
+          onChange={(value) => setCustomValue("imageSrc", value)}
+          value={imageSrc}
         />
       </div>
     );

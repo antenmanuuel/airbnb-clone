@@ -1,9 +1,9 @@
 "use client";
 import { usePathname, useSearchParams } from "next/navigation";
 
-import {categories} from "app/constants/categories";
 import CategoryBox from "../CategoryBox";
 import Container from "../Container";
+import { categories } from "@/app/constants/categories";
 
 const Categories = () => {
   const parms = useSearchParams();
