@@ -1,7 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    appDir: true,
+    externalDir:
+      true |
+      {
+        enabled: true,
+        silent: true,
+      },
+    appDir: true
+    
   },
   images: {
     domains: [
