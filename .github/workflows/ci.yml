@@ -35,6 +35,6 @@ jobs:
         NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME: ${{ secrets.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME }}
       run: |
         docker-compose up --build -d
-        docker-compose up build frontend
+        docker-compose up run build frontend
         docker-compose down
 
